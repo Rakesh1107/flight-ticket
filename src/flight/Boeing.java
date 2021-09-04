@@ -16,7 +16,7 @@ public class Boeing extends Flight {
     public void bookTicket(Passenger passenger) {
         if (seatsFilled < capacity) {
             passengers.put(passenger.getTicketId(), passenger);
-            System.out.println("Ticket booked successfully for " + passenger.getName() + " in Boeing");
+            System.out.println("Ticket booked successfully for " + passenger.getName() + " in Boeing. Ticket id is " + passenger.getTicketId());
             this.seatsFilled++;
             this.ticketPrice += 200;
             return;
@@ -28,6 +28,7 @@ public class Boeing extends Flight {
     public void cancelTicket(int ticketId) {
         if (passengers.containsKey(ticketId)) {
             passengers.remove(ticketId);
+            System.out.println("Ticket cancellation successful");
             this.seatsFilled--;
             this.ticketPrice -= 200;
             return;
